@@ -832,6 +832,10 @@ h1, h2, h3, h4, h5, h6, figure {
     left: 50%;
   }
 
+  .col-md-4 {
+    width: 50%;
+  }
+
   .info-div {
     transform: translate(-50%, -50%);
     width: 50%;
@@ -1019,6 +1023,7 @@ h1, h2, h3, h4, h5, h6, figure {
     height: 450px;
   }
 }
+
 .fh5co-video .overlay {
   position: absolute;
   top: 0;
