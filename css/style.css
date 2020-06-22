@@ -820,13 +820,43 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-blog {
   width: 100%;
   float: left;
-  margin-bottom: 40px;
 }
 @media screen and (max-width: 768px) {
   .fh5co-blog {
     width: 100%;
   }
 }
+
+@media (min-width: 993px) {
+  .align-center-div {
+    left: 50%;
+  }
+
+  .info-div {
+    transform: translate(-50%, -50%);
+    width: 50%;
+  }
+  .para-div{
+    transform: translate(-50%, -5%);
+  }
+
+  .resp-card {
+    width: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .resp-card {
+    top: 10%;
+    width: 100%;
+  }
+
+  .resp-top{
+    margin-top: 20px;
+  }
+  
+}
+
 .fh5co-blog .blog-bg {
   display: block;
   width: 100%;
@@ -847,7 +877,6 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-blog .blog-text {
-  margin-bottom: 30px;
   position: relative;
   width: 100%;
   padding: 30px;
@@ -860,6 +889,14 @@ h1, h2, h3, h4, h5, h6, figure {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
+
+.initiative {
+  border-radius: 8px;
+  box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.29);
+}
+
+
+
 @media screen and (max-width: 768px) {
   .fh5co-blog .blog-text {
     padding: 10px;
@@ -867,9 +904,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-blog .blog-text span {
   display: inline-block;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px;
   font-size: 18px !important;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.3); */
 }
 .fh5co-blog .blog-text .stuff {
   margin: 0;
@@ -889,11 +926,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-blog .blog-text .stuff li:first-child {
   margin-left: 0;
+  color: #000;
 }
 .fh5co-blog .blog-text .stuff li:last-child {
   float: right;
 }
-.fh5co-blog .blog-text .stuff li:last-child a {
+.fh5co-blog .blog-text .stuff li a {
   color: #000;
 }
 .fh5co-blog .blog-text .stuff li:last-child i {
@@ -911,6 +949,14 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-blog .blog-text h3 a {
   color: black;
+}
+
+@media screen and (min-width: 769px) {
+  .project {
+    display: flex; 
+    justify-content: center; 
+    flex-direction: row;
+  }
 }
 
 #fh5co-consult {
@@ -986,8 +1032,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-footer {
-  padding: 50px 0;
-  float: left;
+  padding: 15px 0;
+  /* float: left; */
+  background-color: #fff;
   width: 100%;
 }
 #fh5co-footer p:last-child {
