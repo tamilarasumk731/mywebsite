@@ -1,13 +1,13 @@
 /* ========================================================================
  * Modern Portfolio CSS
- * Updated for 2024 with modern design principles
+ * Updated for 2024 with modern design principles and Dark Mode Support
  * ======================================================================== */
 
 /* ========================================================================
- * CSS Variables (Design Tokens)
+ * CSS Variables (Design Tokens) - Light Mode (Default)
  * ======================================================================== */
 :root {
-  /* Colors */
+  /* Colors - Light Mode */
   --primary-color: #6366f1;
   --primary-dark: #4f46e5;
   --primary-light: #a5b4fc;
@@ -82,6 +82,553 @@
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* ========================================================================
+ * Dark Mode Variables
+ * ======================================================================== */
+[data-theme="dark"] {
+  /* Colors - Dark Mode */
+  --primary-color: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --primary-light: #c4b5fd;
+  --secondary-color: #06d6a0;
+  --accent-color: #fbbf24;
+  
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-light: #9ca3af;
+  --text-inverse: #111827;
+  
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-dark: #030712;
+  --bg-card: #1f2937;
+  
+  --border-color: #374151;
+  --border-light: #4b5563;
+  
+  /* Glass morphism - Dark Mode */
+  --glass-bg: rgba(31, 41, 55, 0.1);
+  --glass-border: rgba(156, 163, 175, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================================================
+ * Simple & Reliable Dark Mode Toggle
+ * ======================================================================== */
+.theme-toggle {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 25px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: rgba(31, 41, 55, 0.9) !important;
+  border-color: #4b5563 !important;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.toggle-track {
+  position: relative !important;
+  width: 50px !important;
+  height: 24px !important;
+  background: #fbbf24 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden !important;
+}
+
+[data-theme="dark"] .toggle-track {
+  background: #8b5cf6 !important;
+}
+
+.toggle-thumb {
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: white !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  transform: translateX(0) !important;
+}
+
+[data-theme="dark"] .toggle-thumb {
+  transform: translateX(26px) !important;
+  background: #1f2937 !important;
+}
+
+.sun-icon {
+  color: #f59e0b !important;
+  font-size: 12px !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.moon-icon {
+  color: #8b5cf6 !important;
+  font-size: 12px !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] .sun-icon {
+  opacity: 0 !important;
+}
+
+[data-theme="dark"] .moon-icon {
+  opacity: 1 !important;
+}
+
+.toggle-label {
+  display: flex !important;
+  flex-direction: column !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #6b7280 !important;
+}
+
+[data-theme="dark"] .toggle-label {
+  color: #d1d5db !important;
+}
+
+.light-label {
+  opacity: 1 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.dark-label {
+  opacity: 0.5 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+[data-theme="dark"] .light-label {
+  opacity: 0.5 !important;
+}
+
+[data-theme="dark"] .dark-label {
+  opacity: 1 !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 15px !important;
+    right: 15px !important;
+    padding: 6px 10px !important;
+  }
+  
+  .toggle-track {
+    width: 40px !important;
+    height: 20px !important;
+  }
+  
+  .toggle-thumb {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  
+  [data-theme="dark"] .toggle-thumb {
+    transform: translateX(20px) !important;
+  }
+  
+  .toggle-label {
+    font-size: 9px !important;
+  }
+}
+
+/* ========================================================================
+ * Body and Global Dark Mode Styles
+ * ======================================================================== */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* ========================================================================
+ * Comprehensive Dark Mode Component Styles
+ * ======================================================================== */
+
+/* Sections and Cards */
+[data-theme="dark"] .about-section,
+[data-theme="dark"] .timeline-section,
+[data-theme="dark"] .skills-section,
+[data-theme="dark"] .projects-section,
+[data-theme="dark"] .contact-section,
+[data-theme="dark"] .resume-section {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary);
+}
+
+/* Professional Journey Section - Fix dark grey background issue */
+[data-theme="dark"] .timeline-section {
+  background-color: var(--bg-primary) !important;
+  background: var(--bg-primary) !important;
+}
+
+/* Resume Section (Professional Journey) - Main Fix */
+[data-theme="dark"] .resume-section {
+  background-color: var(--bg-primary) !important;
+  background: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] #fh5co-resume {
+  background-color: var(--bg-primary) !important;
+  background: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .timeline-container {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Hackathons Section - Better background blending */
+[data-theme="dark"] .hackathons-section {
+  background-color: var(--bg-secondary) !important;
+  background: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .hackathon-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Featured Projects Section - Improve text visibility */
+[data-theme="dark"] .projects-section {
+  background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .projects-section .section-title {
+  color: var(--text-primary) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .projects-section .section-header {
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .hero-card,
+[data-theme="dark"] .timeline-content,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .skill-category,
+[data-theme="dark"] .contact-card {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* Section Titles and Headers - Enhanced visibility */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .project-title {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .hero-subtitle,
+[data-theme="dark"] .timeline-section-header h3 {
+  color: var(--text-secondary);
+}
+
+/* Buttons and Interactive Elements - Enhanced Dark Mode */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .liquid-button {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) !important;
+  border: 2px solid var(--primary-color) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .liquid-button:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)) !important;
+  border-color: var(--primary-light) !important;
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 2px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(139, 92, 246, 0.1) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--primary-light) !important;
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Links and Social Icons */
+[data-theme="dark"] .social-link,
+[data-theme="dark"] .project-link {
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .social-link:hover,
+[data-theme="dark"] .project-link:hover {
+  color: var(--primary-color);
+  background-color: var(--bg-card);
+  border-color: var(--primary-color);
+}
+
+/* Timeline Specific Styles - Enhanced */
+[data-theme="dark"] .timeline-content::before {
+  border-color: transparent !important;
+}
+
+/* Timeline arrows - Fix for dark mode */
+[data-theme="dark"] .timeline-item:nth-child(odd) .timeline-content::before {
+  border-right-color: var(--bg-card) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+}
+
+[data-theme="dark"] .timeline-item:nth-child(even) .timeline-content::before {
+  border-left-color: var(--bg-card) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+}
+
+[data-theme="dark"] .timeline-year {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Timeline content improvements with proper layering */
+[data-theme="dark"] .timeline-content {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Timeline line in dark mode - Enhanced visibility with proper layering */
+[data-theme="dark"] .timeline-container::before {
+  content: '' !important;
+  display: block !important;
+  background: linear-gradient(180deg, #8b5cf6, #06d6a0) !important;
+  opacity: 1 !important;
+  width: 6px !important;
+  height: 100% !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5) !important;
+  border-radius: 3px !important;
+  z-index: -1 !important;
+}
+
+/* Additional timeline line targeting for resume section */
+[data-theme="dark"] .resume-section .timeline-container::before,
+[data-theme="dark"] #fh5co-resume .timeline-container::before {
+  content: '' !important;
+  display: block !important;
+  background: linear-gradient(180deg, #8b5cf6, #06d6a0) !important;
+  opacity: 1 !important;
+  width: 6px !important;
+  height: 100% !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3) !important;
+  border-radius: 3px !important;
+  z-index: 0 !important;
+}
+
+/* Timeline badges in dark mode - Enhanced visibility with proper layering */
+[data-theme="dark"] .timeline-badge {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) !important;
+  border: 3px solid var(--bg-primary) !important;
+  color: white !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4) !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+[data-theme="dark"] .timeline-badge i {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .timeline-content h3,
+[data-theme="dark"] .timeline-content h4 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .timeline-content p {
+  color: var(--text-secondary) !important;
+}
+
+/* Hackathon cards improvements */
+[data-theme="dark"] .hackathon-card h3 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .hackathon-card p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .hackathon-card .achievement {
+  color: var(--primary-color) !important;
+}
+
+/* Hackathon Icons - Make them vibrant in dark mode */
+[data-theme="dark"] .hackathon-icon {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+  color: white !important;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3) !important;
+  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Specific icon colors for each hackathon */
+[data-theme="dark"] .hackathon-card:nth-child(1) .hackathon-icon {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b) !important;
+  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4) !important;
+}
+
+[data-theme="dark"] .hackathon-card:nth-child(2) .hackathon-icon {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4) !important;
+}
+
+[data-theme="dark"] .hackathon-card:nth-child(3) .hackathon-icon {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+[data-theme="dark"] .hackathon-card:nth-child(4) .hackathon-icon {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+[data-theme="dark"] .hackathon-card:nth-child(5) .hackathon-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Hackathon icon hover effects in dark mode */
+[data-theme="dark"] .hackathon-icon:hover {
+  transform: scale(1.1) translateY(-5px) !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] .hackathon-card:hover .hackathon-icon {
+  transform: scale(1.05) !important;
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.5) !important;
+}
+
+/* Section dividers in dark mode */
+[data-theme="dark"] .section-divider {
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent) !important;
+  opacity: 0.6 !important;
+}
+
+/* Skill Progress Bars */
+[data-theme="dark"] .skill-progress {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .skill-progress .progress-bar {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Project Cards Enhanced */
+[data-theme="dark"] .project-image {
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .project-tech {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+/* Form Elements */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Navigation and Go-to-top */
+[data-theme="dark"] .gototop {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .gototop:hover {
+  background-color: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+/* Dividers and Borders */
+[data-theme="dark"] .section-divider {
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+[data-theme="dark"] hr {
+  border-color: var(--border-color);
+}
+
+/* Shadow Adjustments for Dark Mode */
+[data-theme="dark"] .hero-card,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .timeline-content {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure text contrast in dark mode */
+[data-theme="dark"] .text-muted {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .text-dark {
+  color: var(--text-primary) !important;
 }
 
 /* Dark mode support (for future implementation) */

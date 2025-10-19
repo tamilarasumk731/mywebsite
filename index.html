@@ -74,6 +74,20 @@
 	<div class="fh5co-loader"></div>
 	
 	<div id="page">	
+	<!-- Simple Dark Mode Toggle - Test Version -->
+	<div class="theme-toggle" id="themeToggle" onclick="window.toggleTheme && window.toggleTheme()">
+		<div class="toggle-track">
+			<div class="toggle-thumb">
+				<i class="bi bi-sun-fill sun-icon"></i>
+				<i class="bi bi-moon-stars-fill moon-icon"></i>
+			</div>
+		</div>
+		<span class="toggle-label">
+			<span class="light-label">Light</span>
+			<span class="dark-label">Dark</span>
+		</span>
+	</div>
+	
 	<header id="hero-section" class="hero-container">
 		<div class="hero-background parallax-element" data-speed="0.3"></div>
 		<div class="liquid-background">
@@ -1157,6 +1171,81 @@
 				}, 500);
 			}
 		});
+
+		// ========================================================================
+		// SIMPLE Dark Mode Toggle - Guaranteed to Work
+		// ========================================================================
+		
+		// Global toggle function
+		window.toggleTheme = function() {
+			console.log('🌙 Toggle theme called!');
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute('data-theme') || 'light';
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+			
+			console.log('🔄 Switching from', currentTheme, 'to', newTheme);
+			
+			html.setAttribute('data-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			
+			console.log('✅ Theme switched successfully!');
+		};
+		
+		// Initialize theme on page load
+		function initTheme() {
+			console.log('🚀 Initializing theme...');
+			const html = document.documentElement;
+			const savedTheme = localStorage.getItem('theme') || 'light';
+			
+			html.setAttribute('data-theme', savedTheme);
+			console.log('✅ Theme initialized to:', savedTheme);
+		}
+		
+		// Set up event listeners
+		function setupToggle() {
+			console.log('🔧 Setting up toggle...');
+			const toggle = document.getElementById('themeToggle');
+			
+			if (!toggle) {
+				console.error('❌ Toggle element not found!');
+				return;
+			}
+			
+			console.log('✅ Toggle element found:', toggle);
+			
+			// Remove any existing listeners and add new one
+			toggle.onclick = function(e) {
+				e.preventDefault();
+				console.log('🖱️ Toggle clicked!');
+				window.toggleTheme();
+			};
+			
+			console.log('✅ Click handler attached');
+		}
+		
+		// Initialize everything when DOM is ready
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('📄 DOM loaded, initializing...');
+			initTheme();
+			setupToggle();
+		});
+		
+		// Backup initialization
+		window.addEventListener('load', function() {
+			console.log('🌐 Window loaded, backup initialization...');
+			if (!window.themeInitialized) {
+				initTheme();
+				setupToggle();
+				window.themeInitialized = true;
+			}
+		});
+		
+		// Immediate initialization if DOM is already loaded
+		if (document.readyState !== 'loading') {
+			console.log('⚡ DOM already loaded, immediate init...');
+			initTheme();
+			setTimeout(setupToggle, 10);
+		}
 	</script>
 
 	</body>
