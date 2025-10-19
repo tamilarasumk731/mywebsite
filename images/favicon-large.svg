@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <!-- Modern gradient background -->
+  <defs>
+    <linearGradient id="gradientLarge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rounded square background -->
+  <rect width="256" height="256" rx="64" fill="url(#gradientLarge)"/>
+  
+  <!-- Developer icon - laptop with code -->
+  <g transform="translate(128, 128)">
+    <!-- Laptop base -->
+    <rect x="-80" y="20" width="160" height="10" rx="5" fill="white" opacity="0.9"/>
+    
+    <!-- Laptop screen -->
+    <rect x="-70" y="-40" width="140" height="90" rx="8" fill="white" opacity="0.15" stroke="white" stroke-width="2"/>
+    
+    <!-- Code lines on screen -->
+    <rect x="-60" y="-25" width="80" height="4" rx="2" fill="white" opacity="0.8"/>
+    <rect x="-60" y="-15" width="60" height="4" rx="2" fill="white" opacity="0.8"/>
+    <rect x="-60" y="-5" width="100" height="4" rx="2" fill="white" opacity="0.8"/>
+    <rect x="-60" y="5" width="50" height="4" rx="2" fill="white" opacity="0.8"/>
+    <rect x="-60" y="15" width="90" height="4" rx="2" fill="white" opacity="0.8"/>
+    
+    <!-- Terminal cursor -->
+    <rect x="35" y="13" width="3" height="8" fill="#10b981"/>
+  </g>
+</svg>

@@ -1,0 +1,129 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5b21b6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="mathGlow">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.3" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bg)"/>
+  
+  <!-- Laptop Screen -->
+  <rect x="60" y="40" width="280" height="170" rx="12" fill="#1f2937"/>
+  <rect x="65" y="45" width="270" height="160" rx="8" fill="url(#screen)"/>
+  
+  <!-- Laptop Base -->
+  <ellipse cx="200" cy="235" rx="140" ry="12" fill="#1f2937" opacity="0.4"/>
+  <rect x="50" y="210" width="300" height="25" rx="15" fill="#374151"/>
+  
+  <!-- Website Header -->
+  <rect x="75" y="55" width="250" height="30" rx="4" fill="url(#card)"/>
+  
+  <!-- Mathrix Logo/Title -->
+  <text x="200" y="75" text-anchor="middle" font-family="Arial" font-size="16" fill="white" font-weight="bold">MATHRIX'19</text>
+  
+  <!-- Navigation Menu -->
+  <rect x="85" y="95" width="40" height="8" rx="2" fill="#8b5cf6"/>
+  <rect x="135" y="95" width="50" height="8" rx="2" fill="#6b7280"/>
+  <rect x="195" y="95" width="45" height="8" rx="2" fill="#6b7280"/>
+  <rect x="250" y="95" width="55" height="8" rx="2" fill="#6b7280"/>
+  
+  <!-- Event Registration Form -->
+  <g transform="translate(85, 115)">
+    <rect x="0" y="0" width="120" height="70" rx="6" fill="white" stroke="#e5e7eb"/>
+    
+    <!-- Form Title -->
+    <text x="60" y="15" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151" font-weight="bold">Event Registration</text>
+    
+    <!-- Form Fields -->
+    <rect x="10" y="25" width="100" height="8" rx="2" fill="#f3f4f6" stroke="#d1d5db"/>
+    <text x="12" y="31" font-family="Arial" font-size="6" fill="#9ca3af">Name</text>
+    
+    <rect x="10" y="38" width="100" height="8" rx="2" fill="#f3f4f6" stroke="#d1d5db"/>
+    <text x="12" y="44" font-family="Arial" font-size="6" fill="#9ca3af">Email</text>
+    
+    <rect x="10" y="51" width="100" height="8" rx="2" fill="#f3f4f6" stroke="#d1d5db"/>
+    <text x="12" y="57" font-family="Arial" font-size="6" fill="#9ca3af">Department</text>
+    
+    <!-- Submit Button -->
+    <rect x="35" y="62" width="50" height="6" rx="3" fill="url(#card)"/>
+    <text x="60" y="66" text-anchor="middle" font-family="Arial" font-size="6" fill="white">Register</text>
+  </g>
+  
+  <!-- Payment Section -->
+  <g transform="translate(215, 115)">
+    <rect x="0" y="0" width="100" height="70" rx="6" fill="white" stroke="#e5e7eb"/>
+    
+    <!-- Payment Title -->
+    <text x="50" y="15" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151" font-weight="bold">Payment</text>
+    
+    <!-- Credit Card Mockup -->
+    <rect x="15" y="25" width="70" height="25" rx="4" fill="url(#card)"/>
+    <rect x="18" y="28" width="8" height="6" rx="1" fill="#fbbf24"/>
+    <text x="30" y="35" font-family="monospace" font-size="6" fill="white">**** ****</text>
+    <text x="30" y="42" font-family="monospace" font-size="6" fill="white">**** 1234</text>
+    
+    <!-- Amount -->
+    <text x="50" y="58" text-anchor="middle" font-family="Arial" font-size="8" fill="#374151" font-weight="bold">₹500</text>
+    
+    <!-- Pay Button -->
+    <rect x="25" y="62" width="50" height="6" rx="3" fill="#10b981"/>
+    <text x="50" y="66" text-anchor="middle" font-family="Arial" font-size="6" fill="white">Pay Now</text>
+  </g>
+  
+  <!-- Event Stats -->
+  <g transform="translate(85, 195)">
+    <text x="0" y="0" font-family="Arial" font-size="8" fill="#6b7280">Registered: 250</text>
+    <text x="80" y="0" font-family="Arial" font-size="8" fill="#6b7280">Events: 15</text>
+    <text x="140" y="0" font-family="Arial" font-size="8" fill="#6b7280">Days: 3</text>
+  </g>
+  
+  <!-- Mathematical Elements -->
+  <g transform="translate(50, 100)">
+    <circle cx="0" cy="0" r="15" fill="url(#mathGlow)"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Arial" font-size="12" fill="#92400e">∑</text>
+  </g>
+  
+  <g transform="translate(350, 130)">
+    <circle cx="0" cy="0" r="12" fill="url(#mathGlow)"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Arial" font-size="10" fill="#92400e">π</text>
+  </g>
+  
+  <g transform="translate(370, 80)">
+    <circle cx="0" cy="0" r="10" fill="url(#mathGlow)"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Arial" font-size="8" fill="#92400e">∞</text>
+  </g>
+  
+  <!-- Ruby on Rails Badge -->
+  <g transform="translate(280, 195)">
+    <rect x="0" y="0" width="25" height="12" rx="2" fill="#cc0000"/>
+    <text x="12.5" y="8" text-anchor="middle" font-family="Arial" font-size="6" fill="white" font-weight="bold">RAILS</text>
+  </g>
+  
+  <!-- Floating Particles -->
+  <circle cx="40" cy="60" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="360" cy="200" r="3" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="30" cy="180" r="5" fill="#34d399" opacity="0.7"/>
+  <circle cx="380" cy="250" r="4" fill="#f472b6" opacity="0.6"/>
+  
+  <!-- Department Symposium Icon -->
+  <g transform="translate(320, 160)">
+    <rect x="0" y="0" width="20" height="15" rx="2" fill="#1f2937"/>
+    <rect x="2" y="2" width="16" height="11" rx="1" fill="#4f46e5"/>
+    <circle cx="10" cy="7" r="3" fill="white"/>
+    <text x="10" y="9" text-anchor="middle" font-family="Arial" font-size="4" fill="#4f46e5">📊</text>
+  </g>
+</svg>
